@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  php:
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
+    container_name: file_uploader_php
+    volumes:
+      - .:/var/www/app
+    working_dir: /var/www/app
+    ports:
+      - "8081:8081"
+    command: php -S 0.0.0.0:8081 -t public
